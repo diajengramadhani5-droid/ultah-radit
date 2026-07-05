@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Happy Birthday, Sayang 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background: linear-gradient(135deg,#050b1a,#0b1f3a);
+overflow-x:hidden;
+color:white;
+}
+
+/* STAR BACKGROUND */
+.stars {
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:0;
+}
+
+.star {
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation: twinkle 3s infinite ease-in-out;
+opacity:0.5;
+}
+
+@keyframes twinkle{
+0%,100%{opacity:0.2;}
+50%{opacity:1;}
+}
+
+/* INTRO */
+#intro{
+position:fixed;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:rgba(5,11,26,0.95);
+z-index:10;
+text-align:center;
+}
+
+#intro h1{
+font-size:20px;
+letter-spacing:1px;
+}
+
+#intro span{
+margin-top:10px;
+opacity:0.7;
+}
+
+/* MAIN */
+.container{
+position:relative;
+z-index:2;
+text-align:center;
+padding:40px 20px;
+}
+
+.title{
+font-size:28px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.date{
+font-size:14px;
+opacity:0.7;
+margin-bottom:30px;
+}
+
+/* ENVELOPE */
+.envelope{
+width:220px;
+height:140px;
+background:white;
+margin:0 auto;
+position:relative;
+border-radius:8px;
+cursor:pointer;
+transition:0.5s;
+}
+
+.envelope:before{
+content:'';
+position:absolute;
+top:0;
+left:0;
+width:0;
+height:0;
+border-left:110px solid transparent;
+border-right:110px solid transparent;
+border-top:80px solid #0b1f3a;
+}
+
+.envelope.open{
+transform:translateY(-20px);
+opacity:0;
+}
+
+/* LETTER */
+.letter{
+width:90%;
+max-width:500px;
+margin:30px auto;
+background:white;
+color:#0b1f3a;
+padding:20px;
+border-radius:10px;
+display:none;
+text-align:left;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.letter h2{
+text-align:center;
+margin-bottom:10px;
+}
+
+.typing{
+border-right:2px solid #0b1f3a;
+white-space:pre-line;
+overflow:hidden;
+}
+
+/* POLAROID */
+.polaroid{
+margin-top:20px;
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.polaroid img{
+width:90px;
+height:90px;
+object-fit:cover;
+border:5px solid white;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* HEARTS */
+.heart{
+position:fixed;
+top:-10px;
+color:white;
+animation:fall 5s linear infinite;
+opacity:0.7;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+}
+}
+
+/* CONFETTI */
+.confetti{
+position:fixed;
+width:8px;
+height:8px;
+background:white;
+animation:confetti 4s linear infinite;
+top:-10px;
+}
+
+@keyframes confetti{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+/* YOUTUBE */
+iframe{
+margin-top:20px;
+width:100%;
+max-width:500px;
+height:250px;
+border-radius:10px;
+}
+
+/* P.S */
+.ps{
+margin-top:20px;
+font-size:13px;
+opacity:0.8;
+font-style:italic;
+}
+
+.footer{
+margin-top:20px;
+font-weight:600;
+}
+
+button{
+padding:10px 20px;
+border:none;
+background:#0b1f3a;
+color:white;
+border-radius:8px;
+cursor:pointer;
+margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div id="intro">
+<h1>07 • 07 • 2007 🤍</h1>
+<span>For someone who means so much to me...</span>
+</div>
+
+<div class="container">
+
+<div class="title">Happy Birthday, Sayang 🤍</div>
+<div class="date">7 July 2007 🤍</div>
+
+<div class="envelope" onclick="openEnvelope()"></div>
+
+<div class="letter" id="letter">
+<h2>From My Green To Your Blue 🤍</h2>
+
+<div class="typing" id="text"></div>
+
+<div class="polaroid">
+<img src="foto1.jpeg">
+<img src="foto2.jpeg">
+<img src="foto3.jpeg">
+</div>
+
+<iframe src="https://www.youtube.com/embed/HM3DeT4UXqM" allowfullscreen></iframe>
+
+<div class="ps">
+P.S. If someday you ever wonder how loved you are, come back to this letter. I'll always choose you. 🤍
+</div>
+
+<div class="footer">
+Happy Birthday once again, My Boy. 🤍
+</div>
+
+</div>
+
+<button onclick="startHearts()">Open Love</button>
+
+</div>
+
+<script>
+
+// STARS
+const stars=document.querySelector('.stars');
+for(let i=0;i<60;i++){
+let s=document.createElement('div');
+s.className='star';
+s.style.top=Math.random()*100+'%';
+s.style.left=Math.random()*100+'%';
+s.style.animationDuration=(2+Math.random()*3)+'s';
+stars.appendChild(s);
+}
+
+// ENVELOPE
+function openEnvelope(){
+document.querySelector('.envelope').classList.add('open');
+setTimeout(()=>{
+document.getElementById('letter').style.display='block';
+typeText();
+startConfetti();
+},800);
+}
+
+// TYPING
+const text=`Happy Birthday, Sayang. 🎉🤍
+
+I love you more than yesterday, but less than tomorrow.
+
+Sayang, selamat ulang tahun yaa. 🤍
+
+Terima kasih karena sudah bertahan sejauh ini. Terima kasih sudah menjadi tempat pulang yang selalu membuat aku merasa tenang. Terima kasih karena tetap memilih untuk menyayangiku.
+
+Aku bersyukur pernah menjadi bagian dari perjalananmu.
+
+Semoga di usia yang baru ini semua hal baik selalu menyertaimu.`;
+
+let i=0;
+function typeText(){
+let el=document.getElementById("text");
+el.innerHTML="";
+i=0;
+let interval=setInterval(()=>{
+el.innerHTML+=text[i];
+i++;
+if(i>=text.length) clearInterval(interval);
+},40);
+}
+
+// HEARTS
+function startHearts(){
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="🤍";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(10+Math.random()*20)+"px";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),5000);
+},300);
+}
+
+// CONFETTI
+function startConfetti(){
+for(let i=0;i<80;i++){
+let c=document.createElement("div");
+c.className="confetti";
+c.style.left=Math.random()*100+"vw";
+c.style.background=["#fff","#a8c7ff","#ffffff"][Math.floor(Math.random()*3)];
+c.style.animationDuration=(2+Math.random()*3)+"s";
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),4000);
+}
+}
+
+</script>
+
+</body>
+</html>
