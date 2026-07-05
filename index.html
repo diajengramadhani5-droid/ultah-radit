@@ -177,19 +177,6 @@ Semoga hari ini menjadi awal dari kebahagiaan yang selalu menemanimu.
 
 <br><br>
 
-<a id="btnLagu"
-   href="https://youtu.be/HM3DeT4UXqM"
-   target="_blank"
-   style="display:none;
-          background:#ff4d6d;
-          color:white;
-          padding:12px 25px;
-          border-radius:30px;
-          text-decoration:none;
-          font-weight:bold;">
-🎵 Play Our Song
-</a>
-    
 <div id="surat">
 
 <h2>From My Green to Your Blue 🤍</h2>
@@ -252,7 +239,19 @@ See u in all the birthday we'll celebrate together.</i>
 
 </div>
 
-</p>
+<div id="youtube" style="display:none; margin-top:30px;">
+
+<h3>🎵 Lagu untuk kamu 🤍</h3>
+
+<iframe
+width="350"
+height="200"
+src="https://www.youtube.com/embed/HM3DeT4UXqM"
+title="Our Song"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen>
+</iframe>
 
 </div>
 
@@ -271,8 +270,8 @@ function bukaSurat(){
         surat.classList.add("show");
     },10);
 
-    document.getElementById("btnLagu").style.display
-    = "inline-block";
+    document.getElementById("youtube").style.display
+    = "block";
 
     ledakanHati();
 
