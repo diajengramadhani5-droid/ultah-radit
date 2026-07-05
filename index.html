@@ -84,19 +84,6 @@ font-size:25px;
 animation:naik 5s linear infinite;
 opacity:0;
 }
-
-#surat{
-    display:none;
-    opacity:0;
-    transform:scale(0.8);
-    transition:all 0.8s ease;
-}
-#surat.show{
-    display:block;
-    opacity:1;
-    transform:(1);
-}
-</style>
     
 @keyframes naik{
 0%{
@@ -160,15 +147,8 @@ opacity:0;
     <script>
 function bukaSurat() {
     document.getElementById("surat").style.display = "block";
-    
-const musik =document.getElementById("musik");musik.play();
-    
-confetti({
-    particleCount:150,
-    spread:90,
-    origin:{y:0.6}
-});
 }
+        
 </script>
 <div id="surat" style="display:none;">
   Happy Birthday, My Favorite Boy. 🎉💚
@@ -278,7 +258,6 @@ setInterval(buatHati,300);
 </script>
 
 <script>
-src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-    
+
 </body>
 </html>
